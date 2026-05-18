@@ -10,7 +10,7 @@ interface AuthState {
   user: User | null;
   isLoading: boolean;
   
-  // Actions
+  // Acciones
   setAuth: (token: string, refreshToken: string, user: User) => void;
   updateToken: (newToken: string) => void;
   clearAuth: () => void;

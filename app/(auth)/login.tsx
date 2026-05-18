@@ -66,7 +66,7 @@ export default function LoginScreen() {
     >
       <ScrollView contentContainerStyle={{flexGrow: 1, justifyContent: 'center'}} keyboardShouldPersistTaps="handled">
         <View style={styles.card}>
-          {/* NoxOS Branding */}
+          {/* Identidad de Marca de NoxOS */}
           <View style={styles.header}>
             <View style={styles.logoContainer}>
               <Text style={styles.logoText}>Nox<Text style={styles.logoAltText}>OS</Text></Text>
@@ -75,7 +75,7 @@ export default function LoginScreen() {
             
           </View>
 
-          {/* Form Fields */}
+          {/* Campos del Formulario */}
           <View style={styles.form}>
             <View style={styles.inputGroup}>
               <Text style={styles.label}>Usuario</Text>

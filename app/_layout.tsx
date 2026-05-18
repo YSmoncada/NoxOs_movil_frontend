@@ -20,13 +20,13 @@ export default function RootLayout() {
   const { token, user } = useAuthStore();
   const navigationState = useRootNavigationState();
   
-  // Global Alert State
+  // Estado de la alerta global
   const alert = useAlertStore();
 
   useEffect(() => {
     if (!navigationState?.key) return;
 
-    // Use a short timeout to ensure the Layout component has fully mounted
+    // Usar un tiempo de espera corto para asegurar que el componente Layout se haya montado por completo
     const timer = setTimeout(() => {
       const inAuthGroup = segments[0] === '(auth)';
       const inClientGroup = segments[0] === '(client)';
@@ -81,7 +81,7 @@ export default function RootLayout() {
       </Stack>
       <StatusBar style="auto" />
 
-      {/* Global Alert System */}
+      {/* Sistema de Alerta Global */}
       <NoxAlert 
         visible={alert.visible}
         title={alert.title}
