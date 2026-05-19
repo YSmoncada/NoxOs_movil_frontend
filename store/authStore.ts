@@ -39,3 +39,19 @@ export const useAuthStore = create<AuthState>()(
     }
   )
 );
+
+/**
+ * Retorna la ruta inicial o dashboard correspondiente al rol de usuario.
+ */
+export const getDashboardRoute = (role: string | null | undefined): string => {
+  const normalizedRole = role?.toLowerCase() || '';
+  if (normalizedRole === 'admin') {
+    return '/(admin)';
+  } else if (normalizedRole === 'mesera' || normalizedRole === 'mesero') {
+    return '/(mesera)/orders';
+  } else if (normalizedRole === 'bartender') {
+    return '/(bartender)/prep';
+  }
+  return '/(auth)/login';
+};
+

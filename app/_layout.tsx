@@ -5,7 +5,7 @@ import { StatusBar } from 'expo-status-bar';
 import 'react-native-reanimated';
 
 import { useColorScheme } from '@/hooks/use-color-scheme';
-import { useAuthStore } from '../store/authStore';
+import { useAuthStore, getDashboardRoute } from '../store/authStore';
 import { useAlertStore } from '../store/alertStore';
 import NoxAlert from '../components/NoxAlert';
 
@@ -39,18 +39,8 @@ export default function RootLayout() {
 
       // 2. Si HAY token y estamos en la pantalla de login, mandar a su dashboard
       if (token && inAuthGroup) {
-        const role = user?.role?.toLowerCase() || '';
-        
-        if (role === 'admin') {
-          router.replace('/(admin)/orders');
-        } else if (role === 'mesera' || role === 'mesero') {
-          router.replace('/(mesera)/orders');
-        } else if (role === 'bartender') {
-          router.replace('/(bartender)/prep');
-        } else {
-          // Fallback si no hay rol definido
-          router.replace('/(auth)/login');
-        }
+        const route = getDashboardRoute(user?.role);
+        router.replace(route as any);
       }
 
       // 3. Protección de roles cruzados (opcional pero recomendado)

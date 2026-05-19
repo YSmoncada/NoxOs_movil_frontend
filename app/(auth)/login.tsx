@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, TextInput, ActivityIndicator, Alert, KeyboardAvoidingView, Platform, ScrollView } from "react-native";
 import { useRouter } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
-import { useAuthStore } from '../../store/authStore';
+import { useAuthStore, getDashboardRoute } from '../../store/authStore';
 import { useAlertStore } from '../../store/alertStore';
 import apiClient from "../../utils/apiClient";
 
@@ -44,13 +44,8 @@ export default function LoginScreen() {
       });
 
       // Redirección inmediata según el rol
-      if (role === 'admin') {
-        router.replace("/(admin)");
-      } else if (role === 'bartender') {
-        router.replace("/(bartender)/prep");
-      } else {
-        router.replace("/(mesera)/orders");
-      }
+      const dashboardRoute = getDashboardRoute(role);
+      router.replace(dashboardRoute as any);
       
     } catch (error: any) {
       console.error("Login Error Details:", error.response?.data || error.message);
