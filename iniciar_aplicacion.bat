@@ -2,12 +2,7 @@
 title NoxOS - PROBANDO BACKEND RENDER
 color 0B
 
-echo.
-echo  ╔══════════════════════════════════════════════╗
-echo  ║      NoxOS - MODO PRODUCCIÓN (RENDER)        ║
-echo  ║   Usando Backend en la nube (Render)         ║
-echo  ╚══════════════════════════════════════════════╝
-echo.
+
 
 set EXPO_PUBLIC_API_URL=https://noxos-movil-backend.onrender.com/api
 
